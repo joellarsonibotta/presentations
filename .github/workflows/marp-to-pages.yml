@@ -45,7 +45,7 @@ jobs:
           MARP_USER: root:root
       
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact
+        uses: docker://actions/upload-pages-artifact@v1
         with:
           path: ./build
 
