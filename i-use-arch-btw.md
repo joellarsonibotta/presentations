@@ -88,8 +88,8 @@ $ neofetch
 * Read through the Wiki again and start understanding how `archinstall` works
 * Read through the Wiki for btrfs for the copy-on-write feature
 * Discover that archinstall uses shell commands to interface with multiple commands that each have a small subset of information about the filesystem.
-* Shave the yak...
-> How hard can it be to write a C extension for Python to interface with all the C libraries like `libblkid`?
+* Shave the yak... ![w:60px](./img/golden-yak.png)
+* How hard can it be to write a C extension for Python to interface with all the C libraries like `libblkid` and `btrfs`?
 
 ---
 
@@ -100,3 +100,10 @@ $ neofetch
 * Tricked myself into learning what every package on the filesystem does
 * All problems are debuggable when you know the package name reported in `dmesg`
 * It is fun writing `pacman` in your terminal
+
+---
+
+# Getting better with Linux
+
+* Join #linux_guild with a thriving community of one
+* Try install Arch in a virtual machine
