@@ -27,9 +27,9 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 Microsoft decided *that your processor sucks*.
 
-![width:500px](./win-requirements.png)
+![width:500px](./img/win-requirements.png)
 
-![width:800px](./cpu-benchmark.png)
+![width:800px](./img/cpu-benchmark.png)
 
 ---
 
@@ -45,7 +45,7 @@ The [Arch Installation Guide](https://wiki.archlinux.org/title/installation_guid
 
 ---
 
-![bg](./archinstall-screenshot.png)
+![bg](./img/archinstall-screenshot.png)
 
 ---
 
@@ -69,7 +69,7 @@ $ neofetch
 $ neofetch
 ```
 
-![bg right 100%](./neofetch.png)
+![bg right 100%](./img/neofetch.png)
 
 ---
 
