@@ -1,4 +1,8 @@
-name: marp-to-pages
+name: Publish presentations to Github Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 concurrency: marp-to-pages
 on:
   push:
@@ -13,7 +17,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -23,28 +26,38 @@ jobs:
       - name: Marp Build (README)
         uses: docker://marpteam/marp-cli:v1.7.0
         with:
-          args: i-use-arch-btw.md -o build/index.html
+          args: i-use-arch-btw.md -o build/i-use-arch-btw.html
         env:
           MARP_USER: root:root
 
       - name: Marp Build (README.pdf)
         uses: docker://marpteam/marp-cli:v1.7.0
         with:
-          args: i-use-arch-btw.md -o build/README.pdf
+          args: i-use-arch-btw.md -o build/i-use-arch-btw.pdf
         env:
           MARP_USER: root:root
 
       - name: Marp Build (README.pptx)
         uses: docker://marpteam/marp-cli:v1.7.0
         with:
-          args: i-use-arch-btw.md -o build/README.pptx
+          args: i-use-arch-btw.md -o build/i-use-arch-btw.pptx
         env:
           MARP_USER: root:root
-
-      - name: Deploy
-        if: ${{ github.event_name == 'push' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+      
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact
         with:
-          branch: gh-pages
-          folder: ./build/
-          clean-exclude: pr-preview/
+          path: ./build
+
+  deploy:
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
